@@ -1,5 +1,6 @@
 <b>Sound Interactivity: openFrameworks + Arduino code.</b>
 
+<a href="https://vimeo.com/70314848"><img src="https://secure-b.vimeocdn.com/ts/443/487/443487655_295.jpg"/><br/> </a>
 Demo with IR sensor triggering Gurgle sounds here: https://vimeo.com/70314848
 
 The design calls for 3 IR sensors per mushroom for each of the 3 Sound mushrooms. 120 deg angle per mushroom, so divide by 3 yields 40 degrees per Sensor, which is good wiggle room to prevent beam overlap. 
@@ -10,3 +11,4 @@ The design calls for 3 IR sensors per mushroom for each of the 3 Sound mushrooms
 <b>Accents: </b> This is the scrape.wav file which plays back with no interactivity affecting it
 
 <b>Gurgles: </b> Are triggered by IR sensors. Played at 100% volume
+
