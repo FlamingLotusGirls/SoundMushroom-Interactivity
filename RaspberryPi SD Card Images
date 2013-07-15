@@ -1,0 +1,86 @@
+RaspberryPi SD Card Images 
+
+This document is mirrored at https://christinasc.hackpad.com/RaspberryPi-SD-Card-Images-zP9ynutIuVh
+Any questions, please contact me at christinasc at gmail.com
+
+Open Frameworks (oF) + Arduino IDE + Alamode on Raspian Wheezy: 
+ 
+Contains the following:
+Raspbian “wheezy”  version 2013-05-25
+OpenFrameworks for the Pi based off on this setup 
+Alamode libraries. The alamode has a RTC and SD Card slot onboard. 
+Arduino 1.0 with New Ping Library
+RTC ( Real time Clock) setup fro RPi MOdel B revision1 brd. 
+So if yours is version 2, you need to modify this
+ntpdate
+sshd enabled (for newer Macs, you'll need to install XQuartz if you don't have X11)
+resolution to raspberypi.local is enabled
+Adafruit Learning System Raspberry Pi WebIDE
+AlaModeTester.py only works with a mini sd card installed in the alamode.
+pyFirmata, pyserial, mercurial
+gpu_mem = 128, you have to reduce this to 64 when compiling oF
+
+
+Step 1: Download one of the image files below decompress and use dd to write to a 16 GB (or larger) SD card. (sandisk works)
+
+Images: 
+ Version 0.7.4 oF.img.gz (2GB)  https://www.dropbox.com/s/whwq1qtsqzbp70z/oF.img.gz
+Version 0.8 - arriving post July 15
+
+Step 2: How to get the above images on a  SD Card 
+
+username: pi
+password: raspberry
+
+Related links: 
+open frameworks code examples: https://sites.google.com/site/ofauckland/ Open Frameworks for iOS has come a long way in the past year since spring 2012.... 
+This is a little old, but still an ok overview: https://www.sparkfun.com/tutorials/318
+http://www.abluestar.com/blog/raspberry-pi-controlling-an-arduino-via-the-pyfirmata-protocol/
+http://hubcitylabs.org/unlocking-your-new-raspberry-pis-512mb-of-memory/
+http://www.raspberryshake.com/raspberry-pistatic-ip-address/
+https://github.com/openFrameworks-RaspberryPi/openFrameworks/wiki/Raspberry-Pi-Getting-Started
+
+
+Firmata appears to be the way to integrate Arduino with openFrameworks. 
+Max baud rate 57600
+
+* Firmata is a generic protocol for communicating with microcontrollers from software on a host computer. It is intended to work with any host computer software package.
+
+oF Important notes:
+ openframeworks GUI for the pi doesn't work over X11 yet, but that is ok if we are only interested in buildling an app that runs without gui.
+ Also unclear how to fix /dev/ttyS1 communication does not connect over serial when pi is rebooted ; only after uploading standard firmata to the arduino can the oF code connect to arduino over serial. Kind of annoying but it works, regardless.
+Alamode is NOT tested on this install. So I have no idea if its works. 
+wget may not work if you are using At&t as your DSL.
+
+command line toolkit for arduino : http://inotool.org/ 
+
+>>> It is faster to develop on your laptop with oF + Arduino and then to port the code over to the pi (watch for the discrepancies!) 
+
+The Adafruit Web IDE for the raspberry pi is useful tool but required me to make a bitbucket.org account. This is useful for testing pyFirmata. (in general helpful for serial connections to the raspberry pi) Somehow I could not get this to connect on the pi - there may be some configuration issues that I missed or an At&t problem like wget.
+
+I added Ted, Lance and Ellen as admins to the bitbucket account if you need to use it and additional people. The reason why i made the account is to save time - here is the account info
+
+bitbucket.org
+username: FlamingLotus
+password: girls123
+
+how to fix audio so that it comes out of the 3.5mm jack instead of hdmi:
+sudo apt-get install alsa-utils
+sudo modprobe snd_bcm2835
+sudo aplay /usr/share/sounds/alsa/Front_Center.wav
+
+
+For doing development on your pi from OS X via SSH you should perform the following steps:
+On your Raspberry Pi enable sshd to start at boot
+On your Mac from Finder select Apple>System Preferences>Sharing>Internet Sharing
+Check Internet with 'Share Your Connection from: WiFi' and 'To Computers Using: Ethernet'
+Plug an ethernet cable from your Raspberry Pi into your Mac
+Restart your Raspberry Pi
+
+OSX uses the range 192.168.2.2-254 as its DHCP range for devices connected via the ethernet jack your pi will probably be 192.168.2.2but it could be 192.168.2.7You might have to run nmap to find the IP of your pi if you do not have a USB keyboard handynmap -v -sP 192.168.2.2-254 should do the trick. 
+
+Alternatively, you can directly query the current dhcp leases to find your connected ip address with: grep ip_address /private/var/db/dhcpd_leases | cut -d= -f2 | nmap -iL - -sn
+
+If you have enabled mDNS (see above) or are using an earlier version of Raspbian with mDNS pre-enabled, the board will be reachable atraspberrypi.local. (or raspberry.local.) and you can SSH with the username pi: ssh pi@raspberrypi.local. If you have changed the name, or can't find it, a program like Bonjour Browser.
+
+If you haven't enabled mDNS open terminal and run the SSH command ssh pi@the.ip.address.of.your.pi if everything went well you should be presented with a password prompt.
