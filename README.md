@@ -1,4 +1,6 @@
-<b>Sound Interactivity: openFrameworks + Arduino code.</b>
+<b>Sound Interactivity: openFrameworks + Arduino code.</b> <br/>
+for the Flaming Lotus Girls (www.flaminglotus.com) Xylophage sculpture
+
 
 <a href="https://vimeo.com/70314848"><img src="https://secure-b.vimeocdn.com/ts/443/487/443487655_295.jpg"/><br/> </a>
 Demo with IR sensor triggering Gurgle sounds here: https://vimeo.com/70314848
