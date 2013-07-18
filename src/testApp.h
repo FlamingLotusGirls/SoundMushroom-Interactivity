@@ -51,9 +51,9 @@ private:
     ofSoundPlayer  inhaleExhaleSound[NUM_BREATHE];
     ofSoundPlayer  gurgleSounds[NUM_GURGLE];
 
-    string accentTrack = "sounds/normalized/scrapes_loop.wav";
-    string gurgleTracks = "sounds/volume_adjusted/gurgle_";
-    string inhaleExhaleTracks = "sounds/normalized/inhale_exhale_";
+    string accentTrack;
+    string gurgleTracks;
+    string inhaleExhaleTracks;
     
     void irOneSound(int dist);
     void irTwoSound(int dist);

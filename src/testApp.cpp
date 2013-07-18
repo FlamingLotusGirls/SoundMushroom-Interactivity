@@ -30,6 +30,10 @@ void testApp::setup(){
     /////////////////////////////
     // SAMPLE SOUNDS, use this for debugging.
     /////////////////////////////
+
+    accentTrack = "sounds/normalized/scrapes_loop.wav";
+    gurgleTracks = "sounds/volume_adjusted/gurgle_";
+    inhaleExhaleTracks = "sounds/normalized/inhale_exhale_";
     
     beats.loadSound("sounds/1085.mp3");
     beats.setVolume(0.75f);
