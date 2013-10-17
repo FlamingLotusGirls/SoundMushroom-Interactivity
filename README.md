@@ -1,4 +1,4 @@
-<h2>Note: This was a prototype that didn't end up running on the actual sculture.  Production code is in <a href="https://github.com/FlamingLotusGirls/xylophage_sounds">xylophage_sounds</a>--10/14/2013</h2>
+<h2>Note: This was a prototype that didn't end up running on the actual sculpture.  Production code is in <a href="https://github.com/FlamingLotusGirls/xylophage_sounds">xylophage_sounds</a>--10/14/2013</h2>
 <hr/>
 
 <b>Sound Interactivity: openFrameworks + Arduino code.</b> <br/>
